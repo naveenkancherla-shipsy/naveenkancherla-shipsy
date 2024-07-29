@@ -1,0 +1,46 @@
+p-inputGroup .dropdown {
+  flex: 1; 
+  padding: 0.5rem; 
+  border-radius: 3px;
+  background: transparent;
+  border: 1px solid #ccc; 
+  box-shadow: 0 2px 4px rgba(227, 224, 224, 0.1);
+}
+p-inputGroup {
+  font-weight: 600;
+}
+
+.cards {
+  padding : 10px;
+  background: transparent;
+}
+.p-toolbar-group-left,
+.p-toolbar-group-right {
+  font-size: 14px !important;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  background: transparent;
+}
+
+.datepicker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.content-section {
+  margin-top: 10px;
+  font-size: 12px !important;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(218, 215, 215, 0.1); 
+}
+.p-button-text {
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #333;
+    cursor: pointer;
+    box-shadow: none;
+}

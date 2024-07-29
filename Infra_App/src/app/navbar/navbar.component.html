@@ -1,0 +1,20 @@
+<nav>
+  <div class="navbar">
+    <i class="pi pi-angle-left" style="cursor: pointer;" id="closeButton" ></i>
+    <b class="navbar-title">{{ title }}</b>
+    <div>
+      <i
+        class="pi pi-bell mr-4 p-text-secondary"
+        pBadge
+        severity="danger"
+        [value]="value"
+        style="background-color: white; padding-top: 6px;font-size: 20px;"
+      ></i>
+      <p-avatar
+        label="S"
+        [style]="{ 'background-color': '#ece9fc', 'color': '#2a1261', 'font-size': '12px' }"
+        shape="circle"
+      ></p-avatar>
+    </div>
+  </div>
+</nav>

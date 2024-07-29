@@ -1,0 +1,77 @@
+<div class="cards">
+  <p-toolbar class="custom-toolbar">
+    <div class="p-toolbar-group-left">
+      <p-tabMenu [model]="items" [(activeItem)]="activeItem"></p-tabMenu>
+    </div>
+    <div class="p-toolbar-group-right">
+      <p-calendar
+        [(ngModel)]="date" 
+        [iconDisplay]="'input'" 
+        dateFormat="dd M yy"
+        [showIcon]="true" 
+        inputId="icondisplay" 
+        (ngModelChange)="onDateChange($event)" />
+    
+      <p-divider layout="vertical" styleClass="hidden md:flex"></p-divider>
+      <button
+        pButton
+        icon="pi pi-cog"
+        severity="secondary"
+        size="Large"
+        class="p-button-text"
+      ></button>
+    </div>
+  </p-toolbar>
+
+  <div *ngIf="activeItem?.label === 'Services'" class="content-section">
+    <app-buttons></app-buttons>
+    <app-dropdown></app-dropdown>
+    <app-table></app-table>
+  </div>
+
+  <div *ngIf="activeItem?.label === 'Events'" class="content-section">
+    <app-buttons></app-buttons>
+    <div class="grid m-2">
+      <div class="col-12 md:col-6 lg:col-2">
+        <p-inputGroup>
+          <p-inputGroupAddon> Filter 1 </p-inputGroupAddon>
+          <select name="dropdown1" class="dropdown w-full" id="dropdown1">
+            <option value="LoremIpsum">Choose</option>
+          </select>
+        </p-inputGroup>
+      </div>
+      <div class="col-12 md:col-6 lg:col-2">
+        <p-inputGroup>
+          <p-inputGroupAddon>Filter 2</p-inputGroupAddon>
+          <select name="dropdown2" class="dropdown w-full" id="dropdown2">
+            <option value="LoremIpsum">Choose</option>
+          </select>
+        </p-inputGroup>
+      </div>
+    </div>
+    <app-service-table></app-service-table>
+  </div>
+
+  <div *ngIf="activeItem?.label === 'Active Issues'" class="content-section">
+    <app-buttons></app-buttons>
+    <div class="grid m-2">
+      <div class="col-12 md:col-6 lg:col-2">
+        <p-inputGroup>
+          <p-inputGroupAddon> Filter 1</p-inputGroupAddon>
+          <select name="dropdown3" class="dropdown w-full" id="dropdown3">
+            <option value="LoremIpsum">Choose</option>
+          </select>
+        </p-inputGroup>
+      </div>
+      <div class="col-12 md:col-6 lg:col-2">
+        <p-inputGroup>
+          <p-inputGroupAddon>Filter 2</p-inputGroupAddon>
+          <select name="dropdown4" class="dropdown w-full" id="dropdown4">
+            <option value="LoremIpsum">Choose</option>
+          </select>
+        </p-inputGroup>
+      </div>
+    </div>
+    <app-active-issues-table></app-active-issues-table>
+  </div>
+</div>

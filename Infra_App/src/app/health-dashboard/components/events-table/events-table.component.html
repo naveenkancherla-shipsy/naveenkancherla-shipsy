@@ -1,0 +1,31 @@
+<div class="event">
+    <p-table
+        [value]="events"
+        [paginator]="true"
+        [first]="first"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [rowsPerPageOptions]="[5, 10, 20]"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="border: 1px solid #DDDDDD; width:10%;background: #F2F7FC"><p-checkbox [binary]="true" [(ngModel)]="allSelected" (onChange)="toggleAll($event)"></p-checkbox></th>
+                <th style="border: 1px solid #DDDDDD; width:45%;background: #F2F7FC">Event</th>
+                <th style="border: 1px solid #DDDDDD; width:15%;background: #F2F7FC">Region</th>
+                <th style="border: 1px solid #DDDDDD; width:15%;background: #F2F7FC">Created At</th>
+                <th style="border: 1px solid #DDDDDD; width:15%;background: #F2F7FC">Last Modified At</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-event>
+            <tr>
+                <td style="border: 1px solid #DDDDDD;"><p-checkbox [binary]="true" [(ngModel)]="event.selected"></p-checkbox></td>
+                <td style="border: 1px solid #DDDDDD; color:#1659CB; font-weight:700">{{ event.name }}</td>
+                <td style="border: 1px solid #DDDDDD;">{{ event.region }}</td>
+                <td style="border: 1px solid #DDDDDD;">{{ event.createdAt | date: 'short' }}</td>
+                <td style="border: 1px solid #DDDDDD;">{{ event.lastModifiedAt | date: 'short' }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -1,0 +1,14 @@
+<div class="button-row-container">
+  <div class="button-row-4" style="font-weight: 500;">
+    <p-button 
+      *ngFor="let button of buttons"
+      [label]="button.label"
+      [ngClass]="{'p-button-primary': button.isActive}" 
+      [text]="true" 
+      [severity]="button.isActive ? 'primary' : 'secondary'"
+      [outlined]="true"
+      (click)="setActive(button)">
+    </p-button>
+  </div>
+</div>
+<hr style="color: grey;margin:0px 15px;opacity:0.4"/>

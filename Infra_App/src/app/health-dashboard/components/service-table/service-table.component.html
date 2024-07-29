@@ -1,0 +1,46 @@
+<div class="service">
+  <p-table 
+    [value]="services" 
+    [rows]="10" 
+    [paginator]="true"
+    [first]="first"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="border: 1px solid #DDDDDD; width:30%;background: #F2F7FC">Service</th>
+        <th style="border: 1px solid #DDDDDD; width:25%;background: #F2F7FC">Tags</th>
+        <th style="border: 1px solid #DDDDDD; width:25%;background: #F2F7FC">Status</th>
+        <th style="border: 1px solid #DDDDDD; width:10%;background: #F2F7FC; text-align: right">Error%</th>
+        <th style="border: 1px solid #DDDDDD; width:10%;background: #F2F7FC; text-align: right">Avg.Response Time</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-service>
+      <tr>
+        <td style="border: 1px solid #DDDDDD; color:#1659CB; font-weight:700">{{ service.name }}</td>
+        <td style="border: 1px solid #DDDDDD;">
+          <div class="tags-container">
+            <span *ngFor="let tag of service.displayedTags" class="tag">{{tag}}</span>
+            <span *ngIf="service.moreTagCount > 0" class="more-tag">+{{service.moreTagCount}} more</span>
+          </div>
+        </td>
+
+        <td style="border: 1px solid #DDDDDD">
+          <div 
+            class="box" 
+            *ngFor="let box of boxes" 
+            [ngStyle]="{'background-color': box.color}"
+            [pTooltip]="box.tooltipContent"
+            tooltipPosition="right"
+            tooltipClass="custom-tooltip">
+          </div>
+        </td>
+        <td style="border: 1px solid #DDDDDD; text-align: right">{{ service.errorPercentage }}%</td>
+        <td style="border: 1px solid #DDDDDD; text-align: right">{{ service.avgResponseTime }} ms</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

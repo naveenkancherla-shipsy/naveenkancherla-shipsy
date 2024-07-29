@@ -1,0 +1,20 @@
+.container {
+    width: 100%;
+}
+
+p-inputGroup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-weight: 600;
+}
+
+p-inputGroup .dropdown {
+    flex: 1; 
+    padding-left: 10px;
+    padding-right: 10px; 
+    border-radius: 3px;
+    background-color: white;
+    border: 1px solid #efeaea; 
+    box-shadow: 0 2px 4px rgba(166, 163, 163, 0.1);
+}

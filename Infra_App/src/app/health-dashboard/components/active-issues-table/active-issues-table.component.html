@@ -1,0 +1,27 @@
+<div class="active">
+    <p-table 
+    [value]="activeIssues" 
+    [paginator]="true"
+    [first]="first"
+    [showCurrentPageReport]="true"
+    [rows]="10"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" >
+
+    <ng-template pTemplate="header">
+            <tr>
+                <th style="border: 1px solid #DDDDDD; width:50%;background: #F2F7FC">Active Issue</th>
+                <th style="border: 1px solid #DDDDDD; width:25%;background: #F2F7FC">Error %</th>
+                <th style="border: 1px solid #DDDDDD; width:25%;background: #F2F7FC">Avg. Response Time</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-issue>
+            <tr>
+                <td style="border: 1px solid #DDDDDD; color:#1659CB; font-weight:700">{{ issue.name }}</td>
+                <td style="border: 1px solid #DDDDDD;">{{ issue.errorPercentage }} %</td>
+                <td style="border: 1px solid #DDDDDD;">{{ issue.avgResponseTime }} ms</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
